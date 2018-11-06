@@ -1,0 +1,5 @@
+<%if current_user%>
+<%@todos.each do |todo|%>
+	<%=todo.description%>
+<%end%>
+<%end%>
