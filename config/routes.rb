@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
+
   resources :sessions
 
   get 'welcome/index'
-
-  resources :users do
-    resources :todos
-  end
 
   get 'cities/:state', to: 'application#cities'
 
@@ -20,4 +17,5 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   root 'welcome#index'
+  
 end
