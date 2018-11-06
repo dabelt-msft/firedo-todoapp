@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     # find by downcase email because of validation
     user = User.find_by_email(params[:email].downcase)
     log_in user
-    redirect_back_or user
+    redirect_to "/users/#{current_user.id}/todos"
   end
 
   def destroy
