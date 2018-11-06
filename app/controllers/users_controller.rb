@@ -14,7 +14,11 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    if current_user
+      redirect_to user_path(current_user)
+    else
+      @user = User.new
+    end
   end
 
   # GET /users/1/edit

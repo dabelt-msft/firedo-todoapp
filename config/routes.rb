@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users do
-    resources :todos
-  end
 
+  resources :sessions
+
+  get 'welcome/index'
+
+  get 'cities/:state', to: 'application#cities'
+
+  get '/register' => 'users#create'
+
+  get '/add_todo_item' => 'todos#new'
+
+  get '/login' => 'sessions#new'
+
+  post  '/login' => 'sessions#create'
+
+  get '/logout', to: 'sessions#destroy'
+
+  root 'welcome#index'
+  
 end
