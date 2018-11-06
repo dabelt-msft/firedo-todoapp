@@ -1,10 +1,12 @@
 class TodosController < ApplicationController
+    before_action :set_user
     before_action :set_todo, only: [:show, :edit, :update, :destroy]
+    
 
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = @user.todos
   end
 
   # GET /todos/1
@@ -64,11 +66,16 @@ class TodosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
-      @todo = Todo.find(params[:id])
+      user = User.find(params[:user_id])
+      @todo = user.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:title, :body)
+      params.require(:todo).permit(:nominal_priority, :description, :allotted_time_in_hours, :dependencies)
     end
 end
