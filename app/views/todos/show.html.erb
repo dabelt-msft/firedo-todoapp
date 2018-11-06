@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nominal Priority:</strong>
+  <%= @todo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @todo.description %>
+</p>
+
+<p>
+  <strong>Time to complete in hours:</strong>
+  <%= @todo.allotted_time_in_hours %>
+</p>
+
+<p>
+  <strong>Dependencies:</strong>
+  <%= @todo.dependencies %>
+</p>
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> |
+<%= link_to 'Back', todos_path %>
