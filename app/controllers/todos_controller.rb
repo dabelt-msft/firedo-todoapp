@@ -4,13 +4,4 @@ class TodosController < ApplicationController
 			@todos = current_user.todos
 		end
 	end
-
-	def new
-	end
-
-	def create
-	end
-
-	def edit
-	end
 end
