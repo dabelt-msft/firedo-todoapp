@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     puts user_params
     if @user.save
       log_in @user
+      redirect_to user_path @user
     else
       render '/register'
     end
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+      redirect_to user_path @user
     else
       render 'edit'
     end
