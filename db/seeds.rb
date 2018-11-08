@@ -1,14 +1,17 @@
 User.create!( first_name: "derik",
 			  last_name: "thompson",
-			  email: "b@b.com")
+			  email: "b@b.com",
+        password: "p")
 
 User.create!( first_name: "ciara",
 			  last_name: "norman",
-			  email: "c@c.com")
+			  email: "c@c.com",
+        password: "p")
 
 User.create!( first_name: "bob",
 			  last_name: "cat",
-			  email: "d@d.com")
+			  email: "d@d.com",
+        password: "p")
 
 Todo.create!( description: "task 1: send email to clients",
     	      alloted_time_in_hours: 2,

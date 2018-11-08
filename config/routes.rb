@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     resources :todos
   end
 
-  get 'cities/:state', to: 'application#cities'
-
   get '/register' => 'users#create'
 
   get '/add_todo_item' => 'todos#new'

@@ -16,9 +16,9 @@ class UsersController < ApplicationController
     puts "*****************"
     puts user_params
     if @user.save
-      redirect_to 'show'
+      log_in @user
     else
-      render 'new'
+      render '/register'
     end
   end
 
