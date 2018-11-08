@@ -1,4 +1,4 @@
-def range (min, max)
+def range min, max
 	rand * (max-min) + min
 end
 
@@ -14,9 +14,9 @@ end
 100.times do
 	Todo.create!(
 		nominal_priority: rand(11),
-		description: Faker::Company.bs #=> "empower one-to-one web-readiness",
+		description: Faker::Company.bs, #=> "empower one-to-one web-readiness",
 		allotted_time_in_hours: range(0,3),
-		user: User.find(rand(User.count)+1),
+		user_id: User.find(rand(User.count)+1).id,
 		dependencies: "get email address list"
 	)
 end
