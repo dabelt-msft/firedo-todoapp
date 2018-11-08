@@ -1,8 +1,6 @@
 <%if current_user%>
-	<h1><%=@user.first_name%></h1>
+	<h1><%="hello,  " + @user.first_name%></h1>
 	<ul>
-    <% @todos.each do |todo| %>
-      <li><%= todo.description %></li>
-    <% end %>
+      <li><a href="/users/<%=current_user.id%>/todos">View Todo List</a></li>
     </ul>
 <%end%>
