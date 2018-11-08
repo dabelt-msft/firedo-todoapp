@@ -13,5 +13,12 @@
                 <div>
                     <%= f.submit "Create Account"%>
                 </div>
+                <div>
+                    <p><%= f.password_field :password, placeholder: 'Password' %></p>
+                </div>
+                        
+                <div>
+                    <p><%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %></p>
+                </div>
 <% end %>
 </body>
