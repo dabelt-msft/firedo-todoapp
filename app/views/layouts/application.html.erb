@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FiredoTodoapp</title>
+    <title>Firedo®</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,18 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<div width: "70%";>
+	  	<%if logged_in? %>
+	  		<a href="/logout">logout</a>
+	  	<%else%>
+	  		<div>
+				<ul>
+					<li><a href="register">Register</a></li>
+					<li><a href="login">login</a></li>
+				</ul>
+			</div>
+	  	<%end%>
+	    <%= yield %>
+	 </div>
   </body>
 </html>
