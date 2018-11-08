@@ -1,29 +1,22 @@
-User.create!( first_name: "derik",
-			  last_name: "thompson",
-			  email: "b@b.com",
-        password: "p")
+def range (min, max)
+	rand * (max-min) + min
+end
 
-User.create!( first_name: "ciara",
-			  last_name: "norman",
-			  email: "c@c.com",
-        password: "p")
+100.times do 
+	User.create!(
+		first_name: Faker::StarTrek.character,
+		last_name: Faker::StarTrek.character,
+		email: Faker::Internet.email,
+		password: "p"
+	)
+end
 
-User.create!( first_name: "bob",
-			  last_name: "cat",
-			  email: "d@d.com",
-        password: "p")
-
-Todo.create!( description: "task 1: send email to clients",
-    	      alloted_time_in_hours: 2,
-    	      user: User.find(rand(User.count)+1),
-    		  dependencies: "get email address list")
-
-Todo.create!( description: "task 2: other stuff",
-    	      alloted_time_in_hours: 30,
-    	      user: User.find(rand(User.count)+1),
-    		  dependencies: "some other things")
-
-Todo.create!( description: "task 3: to do description",
-    	      alloted_time_in_hours: 1,
-    	      user: User.find(rand(User.count)+1),
-    		  dependencies: "required steps")
+100.times do
+	Todo.create!(
+		nominal_priority: rand(11),
+		description: Faker::Company.bs #=> "empower one-to-one web-readiness",
+		allotted_time_in_hours: range(0,3),
+		user: User.find(rand(User.count)+1),
+		dependencies: "get email address list"
+	)
+end
