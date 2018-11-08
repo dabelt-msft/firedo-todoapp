@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :todos
   end
 
-  get '/register' => 'users#create'
+  get '/register' => 'users#new'
 
   get '/add_todo_item' => 'todos#new'
 
