@@ -2,7 +2,7 @@ def range min, max
 	rand * (max-min) + min
 end
 
-100.times do 
+10.times do 
 	User.create!(
 		first_name: Faker::StarTrek.character,
 		last_name: Faker::StarTrek.character,

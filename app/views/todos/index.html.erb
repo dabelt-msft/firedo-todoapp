@@ -1,5 +1,7 @@
 <%if current_user%>
-<%@todos.each do |todo|%>
-	<%=todo.description%>
-<%end%>
+	<ul>
+		<%@todos.each do |todo|%>
+			<a href="/users/<% #{current_user.id} %>/todos/<%todo.id%>"> <%=todo.description%> </a> 
+		<%end%>
+	</ul>>
 <%end%>
