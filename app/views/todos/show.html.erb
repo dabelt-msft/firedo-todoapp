@@ -1,0 +1,8 @@
+<%if current_user%>
+	<% todo = Todo.find_by(id: params[:id], user_id: params[:user_id]) %>
+
+	<p>description: <%=todo.description  %></p>
+	<p>priority: <%=todo.nominal_priority  %></p>
+	<p>time allotted: <%=todo.allotted_time_in_hours  %> hrs</p>
+	<p>dependencies: <%=todo.dependencies  %></p>
+<%end%>

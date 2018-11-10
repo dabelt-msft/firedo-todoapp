@@ -3785,3 +3785,1909 @@ Migrating to CreateTodos (20181105064815)
   [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
   [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (226.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "firedo-todoapp_development"[0m
+  [1m[35m (218.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "firedo-todoapp_test"[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3296739175282555695)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20181105064804)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181105064804"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTodos (20181105064815)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "todos" ("id" bigserial primary key, "nominal_priority" integer, "user_id" integer, "description" character varying, "allotted_time_in_hours" integer, "dependencies" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181105064815"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-10 04:14:13.108844"], ["updated_at", "2018-11-10 04:14:13.108844"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3296739175282555695)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jonathan Archer"], ["last_name", "Charles Tucker III"], ["email", "darylromaguera@jacobson.co"], ["password_digest", "$2a$10$2Tx4ixAHP.QHshaYK7Y4W.10DdZroZgI7Pa3EVfpkkRHqXJN1kyX6"], ["created_at", "2018-11-10 04:14:21.635376"], ["updated_at", "2018-11-10 04:14:21.635376"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Phlox"], ["last_name", "Quark"], ["email", "ellenthiel@koch.com"], ["password_digest", "$2a$10$4bMbQRW2U.7bhSXELlt.aulYuQJU/043mEHxEhkMqNEiagd8dvlJq"], ["created_at", "2018-11-10 04:14:21.703578"], ["updated_at", "2018-11-10 04:14:21.703578"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "James Tiberius Kirk"], ["last_name", "Kathryn Janeway"], ["email", "liseosinski@adams.name"], ["password_digest", "$2a$10$upMoZH5cs4PD7.Sj5GHy/uLqNO6734Put25IeWnNS231P8vlXZsfu"], ["created_at", "2018-11-10 04:14:21.769980"], ["updated_at", "2018-11-10 04:14:21.769980"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Pavel Chekov"], ["last_name", "B'Elanna Torres"], ["email", "birdiegaylord@denesik.com"], ["password_digest", "$2a$10$h//YPGjE2r50Fe9yk5uPAOAYu5imyTXd5yr1EUw2Yuw7fe/y/t1Ly"], ["created_at", "2018-11-10 04:14:21.836348"], ["updated_at", "2018-11-10 04:14:21.836348"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jean-Luc Picard"], ["last_name", "Phlox"], ["email", "roscoe@hirtheflatley.io"], ["password_digest", "$2a$10$8Wqt6T5l2rjbYN8Gc8ukPuUIV/4AG8jY48SVmrnjRTZJEt3c1XsGK"], ["created_at", "2018-11-10 04:14:21.904064"], ["updated_at", "2018-11-10 04:14:21.904064"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Seven of Nine"], ["last_name", "Tom Paris"], ["email", "nickolaswyman@kuhn.com"], ["password_digest", "$2a$10$mT3/B0r9l231xENt.z/IcueByIQsNRzK0Ylh0o6Df7kTqMie9IhTi"], ["created_at", "2018-11-10 04:14:21.970521"], ["updated_at", "2018-11-10 04:14:21.970521"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kira Nerys"], ["last_name", "Spock"], ["email", "jameyruel@jenkins.org"], ["password_digest", "$2a$10$wm6uFyQoVWFk.KimwGWhTuFx.z0zdAyd/Q1OhvlTD1TJdnk5lyekO"], ["created_at", "2018-11-10 04:14:22.036796"], ["updated_at", "2018-11-10 04:14:22.036796"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Beverly Crusher"], ["last_name", "Pavel Chekov"], ["email", "suzieauer@lang.io"], ["password_digest", "$2a$10$cXd37kIRyeEr/6.3KE4z..2B4Y1bYmFqznEELNv45WIAO/SbdsGSi"], ["created_at", "2018-11-10 04:14:22.106930"], ["updated_at", "2018-11-10 04:14:22.106930"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kes"], ["last_name", "Tuvok"], ["email", "winford@robelhand.net"], ["password_digest", "$2a$10$ywI0kVFsdGK.RoXXSmOyueFLqnutkA06LJtSfcXKGSbhNDlQSRTlm"], ["created_at", "2018-11-10 04:14:22.173426"], ["updated_at", "2018-11-10 04:14:22.173426"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Deanna Troi"], ["last_name", "Montgomery Scott"], ["email", "bellcollins@vonfriesen.co"], ["password_digest", "$2a$10$JtDYqiVc830afM33YRi3A.mmxQrgN3HyrjYpn21fhuv3Sqf7aFsjy"], ["created_at", "2018-11-10 04:14:22.240927"], ["updated_at", "2018-11-10 04:14:22.240927"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 8], ["description", "utilize user-centric methodologies"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.276445"], ["updated_at", "2018-11-10 04:14:22.276445"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 10], ["description", "drive collaborative models"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.281348"], ["updated_at", "2018-11-10 04:14:22.281348"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 8], ["description", "streamline customized eyeballs"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.285541"], ["updated_at", "2018-11-10 04:14:22.285541"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 4], ["description", "drive robust mindshare"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.290305"], ["updated_at", "2018-11-10 04:14:22.290305"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 5], ["description", "unleash vertical platforms"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.295706"], ["updated_at", "2018-11-10 04:14:22.295706"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 8], ["user_id", 7], ["description", "streamline 24/365 paradigms"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.301592"], ["updated_at", "2018-11-10 04:14:22.301592"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 10], ["description", "engineer value-added e-tailers"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.306435"], ["updated_at", "2018-11-10 04:14:22.306435"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 3], ["description", "empower 24/7 solutions"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.311987"], ["updated_at", "2018-11-10 04:14:22.311987"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 5], ["description", "transition one-to-one convergence"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.316955"], ["updated_at", "2018-11-10 04:14:22.316955"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 2], ["description", "exploit impactful systems"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.321753"], ["updated_at", "2018-11-10 04:14:22.321753"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 8], ["description", "productize integrated supply-chains"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.326567"], ["updated_at", "2018-11-10 04:14:22.326567"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 6], ["description", "matrix distributed web-readiness"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.338246"], ["updated_at", "2018-11-10 04:14:22.338246"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 1], ["description", "reintermediate cross-media communities"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.342096"], ["updated_at", "2018-11-10 04:14:22.342096"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 6], ["description", "drive virtual methodologies"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.345751"], ["updated_at", "2018-11-10 04:14:22.345751"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 6], ["user_id", 9], ["description", "maximize B2C niches"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.349139"], ["updated_at", "2018-11-10 04:14:22.349139"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 8], ["description", "embrace revolutionary convergence"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.352753"], ["updated_at", "2018-11-10 04:14:22.352753"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 6], ["description", "syndicate collaborative supply-chains"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.356491"], ["updated_at", "2018-11-10 04:14:22.356491"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 5], ["description", "engage leading-edge ROI"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.360457"], ["updated_at", "2018-11-10 04:14:22.360457"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 1], ["description", "unleash visionary convergence"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.364540"], ["updated_at", "2018-11-10 04:14:22.364540"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 10], ["description", "reintermediate leading-edge paradigms"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.368332"], ["updated_at", "2018-11-10 04:14:22.368332"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 4], ["description", "evolve customized infrastructures"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.371892"], ["updated_at", "2018-11-10 04:14:22.371892"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 7], ["description", "target extensible relationships"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.375412"], ["updated_at", "2018-11-10 04:14:22.375412"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 7], ["description", "engineer extensible technologies"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.379106"], ["updated_at", "2018-11-10 04:14:22.379106"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 6], ["description", "mesh clicks-and-mortar partnerships"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.382777"], ["updated_at", "2018-11-10 04:14:22.382777"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 10], ["user_id", 4], ["description", "enable mission-critical networks"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.386379"], ["updated_at", "2018-11-10 04:14:22.386379"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 10], ["user_id", 10], ["description", "maximize clicks-and-mortar vortals"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.390021"], ["updated_at", "2018-11-10 04:14:22.390021"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 7], ["description", "leverage proactive portals"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.393530"], ["updated_at", "2018-11-10 04:14:22.393530"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 1], ["description", "reinvent out-of-the-box initiatives"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.397232"], ["updated_at", "2018-11-10 04:14:22.397232"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 1], ["description", "implement viral eyeballs"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.400554"], ["updated_at", "2018-11-10 04:14:22.400554"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 9], ["description", "envisioneer extensible technologies"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.403949"], ["updated_at", "2018-11-10 04:14:22.403949"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 1], ["description", "unleash proactive relationships"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.407859"], ["updated_at", "2018-11-10 04:14:22.407859"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 8], ["description", "brand one-to-one e-services"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.411441"], ["updated_at", "2018-11-10 04:14:22.411441"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 9], ["description", "synergize killer systems"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.414963"], ["updated_at", "2018-11-10 04:14:22.414963"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 10], ["user_id", 4], ["description", "envisioneer clicks-and-mortar web-readiness"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.418727"], ["updated_at", "2018-11-10 04:14:22.418727"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 10], ["user_id", 10], ["description", "embrace strategic metrics"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.422260"], ["updated_at", "2018-11-10 04:14:22.422260"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 5], ["description", "mesh intuitive convergence"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.425633"], ["updated_at", "2018-11-10 04:14:22.425633"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 4], ["description", "monetize wireless experiences"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.429416"], ["updated_at", "2018-11-10 04:14:22.429416"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 3], ["description", "target revolutionary applications"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.432857"], ["updated_at", "2018-11-10 04:14:22.432857"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 8], ["user_id", 8], ["description", "reintermediate viral supply-chains"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.436388"], ["updated_at", "2018-11-10 04:14:22.436388"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 3], ["description", "target next-generation relationships"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.439756"], ["updated_at", "2018-11-10 04:14:22.439756"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 3], ["description", "harness compelling synergies"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.443404"], ["updated_at", "2018-11-10 04:14:22.443404"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 5], ["description", "target out-of-the-box web-readiness"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.447156"], ["updated_at", "2018-11-10 04:14:22.447156"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 3], ["description", "target next-generation models"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.450571"], ["updated_at", "2018-11-10 04:14:22.450571"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 6], ["description", "revolutionize open-source web services"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.454118"], ["updated_at", "2018-11-10 04:14:22.454118"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 10], ["user_id", 6], ["description", "architect rich portals"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.457794"], ["updated_at", "2018-11-10 04:14:22.457794"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 2], ["description", "harness proactive action-items"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.461847"], ["updated_at", "2018-11-10 04:14:22.461847"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 8], ["user_id", 6], ["description", "matrix customized experiences"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.465624"], ["updated_at", "2018-11-10 04:14:22.465624"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 6], ["description", "whiteboard distributed portals"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.469127"], ["updated_at", "2018-11-10 04:14:22.469127"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 3], ["description", "scale efficient web-readiness"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.472720"], ["updated_at", "2018-11-10 04:14:22.472720"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 3], ["description", "grow leading-edge e-markets"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.476312"], ["updated_at", "2018-11-10 04:14:22.476312"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 5], ["description", "innovate enterprise supply-chains"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.479918"], ["updated_at", "2018-11-10 04:14:22.479918"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 2], ["description", "disintermediate integrated e-tailers"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.483678"], ["updated_at", "2018-11-10 04:14:22.483678"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 2], ["description", "matrix out-of-the-box models"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.487482"], ["updated_at", "2018-11-10 04:14:22.487482"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 5], ["description", "mesh mission-critical mindshare"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.491266"], ["updated_at", "2018-11-10 04:14:22.491266"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 6], ["user_id", 7], ["description", "enhance out-of-the-box platforms"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.495040"], ["updated_at", "2018-11-10 04:14:22.495040"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 3], ["description", "strategize cross-platform infomediaries"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.498729"], ["updated_at", "2018-11-10 04:14:22.498729"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 8], ["user_id", 5], ["description", "visualize killer action-items"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.502155"], ["updated_at", "2018-11-10 04:14:22.502155"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 5], ["description", "deploy innovative e-tailers"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.505800"], ["updated_at", "2018-11-10 04:14:22.505800"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 7], ["description", "syndicate granular content"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.509384"], ["updated_at", "2018-11-10 04:14:22.509384"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 2], ["description", "enable vertical experiences"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.512977"], ["updated_at", "2018-11-10 04:14:22.512977"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 1], ["description", "unleash dot-com content"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.516750"], ["updated_at", "2018-11-10 04:14:22.516750"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 7], ["description", "syndicate revolutionary e-business"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.520536"], ["updated_at", "2018-11-10 04:14:22.520536"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 5], ["description", "syndicate real-time technologies"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.524102"], ["updated_at", "2018-11-10 04:14:22.524102"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 8], ["user_id", 9], ["description", "embrace 24/7 interfaces"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.528065"], ["updated_at", "2018-11-10 04:14:22.528065"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 7], ["description", "reinvent wireless e-commerce"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.531894"], ["updated_at", "2018-11-10 04:14:22.531894"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 6], ["description", "cultivate e-business e-business"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.535341"], ["updated_at", "2018-11-10 04:14:22.535341"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 6], ["description", "disintermediate rich infrastructures"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.538849"], ["updated_at", "2018-11-10 04:14:22.538849"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 10], ["user_id", 7], ["description", "scale impactful e-commerce"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.542676"], ["updated_at", "2018-11-10 04:14:22.542676"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 5], ["description", "streamline turn-key eyeballs"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.546050"], ["updated_at", "2018-11-10 04:14:22.546050"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 10], ["description", "orchestrate strategic e-business"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.549562"], ["updated_at", "2018-11-10 04:14:22.549562"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 10], ["description", "redefine dot-com convergence"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.553307"], ["updated_at", "2018-11-10 04:14:22.553307"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 5], ["description", "target seamless vortals"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.556842"], ["updated_at", "2018-11-10 04:14:22.556842"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 8], ["user_id", 1], ["description", "seize innovative functionalities"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.560583"], ["updated_at", "2018-11-10 04:14:22.560583"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 2], ["description", "whiteboard B2B solutions"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.564251"], ["updated_at", "2018-11-10 04:14:22.564251"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 1], ["description", "facilitate best-of-breed architectures"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.567686"], ["updated_at", "2018-11-10 04:14:22.567686"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 9], ["description", "empower user-centric web services"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.571075"], ["updated_at", "2018-11-10 04:14:22.571075"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 3], ["description", "repurpose dynamic deliverables"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.574559"], ["updated_at", "2018-11-10 04:14:22.574559"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 2], ["user_id", 4], ["description", "scale holistic metrics"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.577972"], ["updated_at", "2018-11-10 04:14:22.577972"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 4], ["description", "enhance 24/7 experiences"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.581534"], ["updated_at", "2018-11-10 04:14:22.581534"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 2], ["description", "unleash one-to-one convergence"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.585232"], ["updated_at", "2018-11-10 04:14:22.585232"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 1], ["description", "extend cross-media channels"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.588756"], ["updated_at", "2018-11-10 04:14:22.588756"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 7], ["description", "implement innovative experiences"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.592554"], ["updated_at", "2018-11-10 04:14:22.592554"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 8], ["description", "productize distributed platforms"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.596365"], ["updated_at", "2018-11-10 04:14:22.596365"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 3], ["description", "whiteboard front-end eyeballs"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.600023"], ["updated_at", "2018-11-10 04:14:22.600023"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 6], ["user_id", 5], ["description", "reinvent sticky functionalities"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.603435"], ["updated_at", "2018-11-10 04:14:22.603435"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 8], ["description", "maximize magnetic infomediaries"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.606977"], ["updated_at", "2018-11-10 04:14:22.606977"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 9], ["description", "envisioneer sexy e-commerce"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.610954"], ["updated_at", "2018-11-10 04:14:22.610954"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 6], ["description", "iterate bricks-and-clicks schemas"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.614496"], ["updated_at", "2018-11-10 04:14:22.614496"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 1], ["description", "exploit 24/365 networks"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.618017"], ["updated_at", "2018-11-10 04:14:22.618017"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 2], ["description", "utilize scalable users"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.621812"], ["updated_at", "2018-11-10 04:14:22.621812"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 7], ["description", "optimize bricks-and-clicks vortals"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.625459"], ["updated_at", "2018-11-10 04:14:22.625459"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 9], ["user_id", 1], ["description", "deploy scalable vortals"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.629093"], ["updated_at", "2018-11-10 04:14:22.629093"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 5], ["user_id", 10], ["description", "maximize distributed mindshare"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.632746"], ["updated_at", "2018-11-10 04:14:22.632746"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 9], ["description", "enhance intuitive niches"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.636258"], ["updated_at", "2018-11-10 04:14:22.636258"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 4], ["description", "architect open-source deliverables"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.639873"], ["updated_at", "2018-11-10 04:14:22.639873"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 3], ["user_id", 4], ["description", "monetize granular web-readiness"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.643424"], ["updated_at", "2018-11-10 04:14:22.643424"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 1], ["user_id", 6], ["description", "whiteboard frictionless networks"], ["allotted_time_in_hours", 2], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.646944"], ["updated_at", "2018-11-10 04:14:22.646944"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 7], ["user_id", 4], ["description", "benchmark turn-key paradigms"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.650354"], ["updated_at", "2018-11-10 04:14:22.650354"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 10], ["user_id", 3], ["description", "aggregate dot-com deliverables"], ["allotted_time_in_hours", 1], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.653890"], ["updated_at", "2018-11-10 04:14:22.653890"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 4], ["description", "cultivate robust architectures"], ["allotted_time_in_hours", 0], ["dependencies", "get email address list"], ["created_at", "2018-11-10 04:14:22.657623"], ["updated_at", "2018-11-10 04:14:22.657623"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/login" for 127.0.0.1 at 2018-11-09 20:14:45 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered sessions/new.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 248ms (Views: 229.9ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-11-09 20:14:58 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"juOnxC8CUma4X4BhbcaILmasKayyeyrBLAZiWNzks98jNw9tc5TNmmxHY9ISwUuDE6T0ZJi36yf0ViN7TvA+CA==", "email"=>"bellcollins@vonfriesen.co", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bellcollins@vonfriesen.co"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 94ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:14:58 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  Rendered todos/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/dawit/Desktop/davidproject/firedo-todoapp/app/views/todos/index.html.erb:11: unterminated regexp meets end of file
+          end
+             ^
+/Users/dawit/Desktop/davidproject/firedo-todoapp/app/views/todos/index.html.erb:11: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/todos/index.html.erb:11: unterminated regexp meets end of file
+app/views/todos/index.html.erb:11: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:17:09 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 80ms (Views: 65.0ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:31 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 28ms (Views: 22.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:34 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 30ms (Views: 19.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:36 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 47ms (Views: 32.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:37 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 26.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:37 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (3.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 40ms (Views: 27.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:38 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 20.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:40 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 48ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:20:41 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 28ms (Views: 20.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:26:07 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 38ms (Views: 33.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:26:11 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 45ms (Views: 33.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:26:13 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 50ms (Views: 26.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:26:14 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 41ms (Views: 30.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:26:15 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 33ms (Views: 23.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/10/todos/1" for 127.0.0.1 at 2018-11-09 20:27:15 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/todos/1" for 127.0.0.1 at 2018-11-09 20:28:14 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 40.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:22 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 35ms (Views: 29.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:24 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 55ms (Views: 22.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:25 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 42ms (Views: 31.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:25 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (8.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 49ms (Views: 30.3ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:26 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 45ms (Views: 32.2ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:27 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (2.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 86ms (Views: 34.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:28 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (12.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 55ms (Views: 35.0ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:29 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 66ms (Views: 35.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:30 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 52ms (Views: 20.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:31 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:31 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (9.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 49ms (Views: 26.6ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:48 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 48ms (Views: 35.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:49 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 50ms (Views: 28.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:51 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 46ms (Views: 31.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:51 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (11.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 62ms (Views: 37.3ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:52 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 49ms (Views: 32.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:53 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 52ms (Views: 34.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:54 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (3.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 45ms (Views: 28.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:55 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (5.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 53ms (Views: 35.0ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:56 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 46ms (Views: 32.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:28:59 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (2.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 47ms (Views: 32.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:29:39 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 93ms (Views: 29.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:29:41 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 42ms (Views: 29.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:29:42 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 66ms (Views: 38.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:29:43 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 50ms (Views: 26.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:29:59 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 34ms (Views: 28.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/11/todos/2" for 127.0.0.1 at 2018-11-09 20:30:01 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"11", "id"=>"2"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/11/todos/7" for 127.0.0.1 at 2018-11-09 20:30:05 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"11", "id"=>"7"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/11/todos/20" for 127.0.0.1 at 2018-11-09 20:30:07 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"11", "id"=>"20"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/11/todos/26" for 127.0.0.1 at 2018-11-09 20:30:10 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"11", "id"=>"26"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 35.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:37:50 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 86ms (Views: 80.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/todos/new" for 127.0.0.1 at 2018-11-09 20:37:54 -0800
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for TodosController):
+  
+actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:37:57 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/todos/new" for 127.0.0.1 at 2018-11-09 20:39:42 -0800
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for TodosController):
+  
+actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 20:39:47 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 26ms (Views: 21.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-09 21:05:57 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 57ms (Views: 29.5ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/users/10/todos/new" for 127.0.0.1 at 2018-11-09 21:05:59 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193537578000'
+Started GET "/users/10/todos/new" for 127.0.0.1 at 2018-11-09 21:06:40 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (143.0ms)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `todos_path' for #<#<Class:0x00007fae6f8ea808>:0x00007fae6f8e8bc0>
+Did you mean?  root_path):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193586329600'
+Started GET "/users/10/todos/new" for 127.0.0.1 at 2018-11-09 21:06:44 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (129.8ms)
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `todos_path' for #<#<Class:0x00007fae6f8ea808>:0x00007fae6de38050>
+Did you mean?  root_path):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193572332720'
+Started GET "/users/10/todos/new" for 127.0.0.1 at 2018-11-09 21:09:16 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (120.0ms)
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `todos_path' for #<#<Class:0x00007fae6f8ea808>:0x00007fae6eb73e68>
+Did you mean?  root_path):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193579279940'
+Started GET "/users/10/todos/new" for 127.0.0.1 at 2018-11-09 21:17:12 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (150.5ms)
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `todos_path' for #<#<Class:0x00007fae6f8ea808>:0x00007fae6f8e1d20>
+Did you mean?  root_path):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193586312000'
+Started GET "/" for 127.0.0.1 at 2018-11-09 21:17:23 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 50.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-11-09 21:18:02 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 21:18:02 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-09 21:18:03 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-11-09 21:18:11 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CTeURhyP3NTMpi+0d9yHnVnrDxTIfVYm25ns63pELMFZn1U89bHjKEhVA4vS7Y1EGsF7inE7k0XtKQ+RyYi8IA==", "email"=>"suzieauer@lang.io", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "suzieauer@lang.io"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/8/todos
+Completed 302 Found in 72ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/8/todos" for 127.0.0.1 at 2018-11-09 21:18:11 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/8/todos/new" for 127.0.0.1 at 2018-11-09 21:18:13 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"8"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (114.0ms)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `todos_path' for #<#<Class:0x00007fae6f8ea808>:0x00007fae6e923fa0>
+Did you mean?  root_path):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193578068680'
+Started GET "/users/8/todos/new" for 127.0.0.1 at 2018-11-09 21:19:04 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"8"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <body>
+    2: <%= form_for @user_todos do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193543500000'
+Started GET "/users/8/todos/new" for 127.0.0.1 at 2018-11-09 21:19:33 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"8"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <body>
+    2: <%= form_for @users_todos do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193577842620'
+Started GET "/users/8/todos/new" for 127.0.0.1 at 2018-11-09 21:21:07 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"8"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (160.8ms)
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `todos_path' for #<#<Class:0x00007fae6f8021e8>:0x00007fae6f800578>
+Did you mean?  root_path):
+    1: <body>
+    2: <%= form_for @new_user_todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193585853680'
+Started GET "/" for 127.0.0.1 at 2018-11-09 22:09:23 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 51.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-11-09 22:09:25 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 22:09:25 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-09 22:09:27 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered sessions/new.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 54ms (Views: 44.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-11-09 22:09:37 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j1qpx2ZoQPh+2iA5NHa3HdrZIpgM5UuhumsHj6/Ycy3f8mi9j1Z/BPopDAaRR73EmfNWBrWjjsKM2+T1HBTjzA==", "email"=>"ellenthiel@koch.com", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ellenthiel@koch.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/2/todos
+Completed 302 Found in 76ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2/todos" for 127.0.0.1 at 2018-11-09 22:09:37 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered todos/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 39ms (Views: 25.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/2/todos/new" for 127.0.0.1 at 2018-11-09 22:09:39 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (129.2ms)
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `todos_path' for #<#<Class:0x00007fae6edf08f8>:0x00007fae6dea2d10>
+Did you mean?  root_path):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/new.html.erb:2:in `_app_views_todos_new_html_erb___48661409070213385_70193572551520'
+Started POST "/__web_console/repl_sessions/7d9991b7abd6872779ed99f3f0cc8e23/trace" for 127.0.0.1 at 2018-11-09 22:09:52 -0800
+Started POST "/__web_console/repl_sessions/7d9991b7abd6872779ed99f3f0cc8e23/trace" for 127.0.0.1 at 2018-11-09 22:09:54 -0800
+Started GET "/users/2/todos/new" for 127.0.0.1 at 2018-11-09 22:12:16 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 54.4ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/users/2/todos/new" for 127.0.0.1 at 2018-11-09 22:13:48 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:14:39 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZZ8uzD3qz9CQbgwb8VBtrMuO9v5c/MRgN6eNaOlwuM0QtQSbGE0w5ZZW4MQwoIbxibmE9O/MvdYjt8WMbFPNA==", "todo"=>{"description"=>"", "nominal_priority"=>"", "allotted_time_in_hours"=>"", "dependencies"=>""}, "commit"=>"submit"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 868ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: User must exist):
+  
+app/controllers/todos_controller.rb:13:in `create'
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:16:22 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZZ8uzD3qz9CQbgwb8VBtrMuO9v5c/MRgN6eNaOlwuM0QtQSbGE0w5ZZW4MQwoIbxibmE9O/MvdYjt8WMbFPNA==", "todo"=>{"description"=>"", "nominal_priority"=>"", "allotted_time_in_hours"=>"", "dependencies"=>""}, "commit"=>"submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/todos_controller.rb:13:in `create'
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:18:03 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZZ8uzD3qz9CQbgwb8VBtrMuO9v5c/MRgN6eNaOlwuM0QtQSbGE0w5ZZW4MQwoIbxibmE9O/MvdYjt8WMbFPNA==", "todo"=>{"description"=>"", "nominal_priority"=>"", "allotted_time_in_hours"=>"", "dependencies"=>""}, "commit"=>"submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 16ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: User must exist):
+  
+app/controllers/todos_controller.rb:14:in `create'
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:19:25 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZZ8uzD3qz9CQbgwb8VBtrMuO9v5c/MRgN6eNaOlwuM0QtQSbGE0w5ZZW4MQwoIbxibmE9O/MvdYjt8WMbFPNA==", "todo"=>{"description"=>"", "nominal_priority"=>"", "allotted_time_in_hours"=>"", "dependencies"=>""}, "commit"=>"submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 21ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: User must exist):
+  
+app/controllers/todos_controller.rb:14:in `create'
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:20:24 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZZ8uzD3qz9CQbgwb8VBtrMuO9v5c/MRgN6eNaOlwuM0QtQSbGE0w5ZZW4MQwoIbxibmE9O/MvdYjt8WMbFPNA==", "todo"=>{"description"=>"", "nominal_priority"=>"", "allotted_time_in_hours"=>"", "dependencies"=>""}, "commit"=>"submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 20ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: User must exist):
+  
+app/controllers/todos_controller.rb:15:in `create'
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:21:25 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZZ8uzD3qz9CQbgwb8VBtrMuO9v5c/MRgN6eNaOlwuM0QtQSbGE0w5ZZW4MQwoIbxibmE9O/MvdYjt8WMbFPNA==", "todo"=>{"description"=>"", "nominal_priority"=>"", "allotted_time_in_hours"=>"", "dependencies"=>""}, "commit"=>"submit"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `save' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:15:in `create'
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:30:27 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZZ8uzD3qz9CQbgwb8VBtrMuO9v5c/MRgN6eNaOlwuM0QtQSbGE0w5ZZW4MQwoIbxibmE9O/MvdYjt8WMbFPNA==", "todo"=>{"description"=>"", "nominal_priority"=>"", "allotted_time_in_hours"=>"", "dependencies"=>""}, "commit"=>"submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "todos" ("user_id", "description", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["description", ""], ["dependencies", ""], ["created_at", "2018-11-10 06:30:27.531419"], ["updated_at", "2018-11-10 06:30:27.531419"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2/todos
+Completed 302 Found in 38ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/users/2/todos" for 127.0.0.1 at 2018-11-09 22:30:27 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered todos/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 100ms (Views: 91.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2/todos/new" for 127.0.0.1 at 2018-11-09 22:30:31 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos" for 127.0.0.1 at 2018-11-09 22:30:37 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u37c9snu88D3pxbJE4giCWo0lQeQMrmdOqWUhYmuHlgZ+syLyX0MY1W1BtEXdrPfnR+OSjjy6tbg02JBfGw/Dg==", "todo"=>{"description"=>"a", "nominal_priority"=>"c", "allotted_time_in_hours"=>"s", "dependencies"=>"s"}, "commit"=>"submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 0], ["user_id", 2], ["description", "a"], ["allotted_time_in_hours", 0], ["dependencies", "s"], ["created_at", "2018-11-10 06:30:37.700698"], ["updated_at", "2018-11-10 06:30:37.700698"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2/todos
+Completed 302 Found in 13ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/users/2/todos" for 127.0.0.1 at 2018-11-09 22:30:37 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 26ms (Views: 20.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2/todos/80" for 127.0.0.1 at 2018-11-09 22:30:53 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"80"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 22:35:04 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  Rendered todos/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 32.7ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 22:38:59 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 22:40:09 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `description' for nil:NilClass):
+    1: <%if current_user%>
+    2: 	<p><%=@todo.description  %></p>
+    3: 	<p><%=@todo.nominal_priority  %></p>
+    4: 	<p><%=@todo.allotted_time_in_hours  %></p>
+    5: 	<p><%=@todo.dependencies  %></p>
+  
+app/views/todos/show.html.erb:2:in `_app_views_todos_show_html_erb___4502263694483968714_70193601077880'
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 22:44:50 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (722.1ms)
+Completed 500 Internal Server Error in 729ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `todo' for #<#<Class:0x00007fae6f9a03d8>:0x00007fae7185a7b0>):
+    1: <%if current_user%>
+    2: 	todo = current_user.todos
+    3: 	<p><%=todo.description  %></p>
+    4: 	<p><%=todo.nominal_priority  %></p>
+    5: 	<p><%=todo.allotted_time_in_hours  %></p>
+    6: 	<p><%=todo.dependencies  %></p>
+  
+app/views/todos/show.html.erb:3:in `_app_views_todos_show_html_erb___4502263694483968714_70193586701800'
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 23:07:59 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (238.0ms)
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `todo' for #<#<Class:0x00007fae6f9a03d8>:0x00007fae6dd89848>):
+    1: <%if current_user%>
+    2: 	todo = current_user.todos
+    3: 	<p><%=todo.description  %></p>
+    4: 	<p><%=todo.nominal_priority  %></p>
+    5: 	<p><%=todo.allotted_time_in_hours  %></p>
+    6: 	<p><%=todo.dependencies  %></p>
+  
+app/views/todos/show.html.erb:3:in `_app_views_todos_show_html_erb___4502263694483968714_70193571978420'
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 23:09:23 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (720.0ms)
+Completed 500 Internal Server Error in 738ms (ActiveRecord: 5.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `todo' for #<#<Class:0x00007fae6f9a03d8>:0x00007fae6edc9190>):
+    1: <%if current_user%>
+    2: 	todo = Todo.find(id: params[:id], user_id: params[:user_id])
+    3: 
+    4: 	<p><%=todo.description  %></p>
+    5: 	<p><%=todo.nominal_priority  %></p>
+    6: 	<p><%=todo.allotted_time_in_hours  %></p>
+    7: 	<p><%=todo.dependencies  %></p>
+  
+app/views/todos/show.html.erb:4:in `_app_views_todos_show_html_erb___4502263694483968714_70193580495600'
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 23:10:55 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (31.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (137.2ms)
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 38.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Todo with 'id'={:id=>"53", :user_id=>"2"}):
+  
+app/views/todos/show.html.erb:2:in `_app_views_todos_show_html_erb___4502263694483968714_70193600554440'
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 23:11:38 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 53], ["user_id", 2], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 48ms (Views: 43.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/2/todos/53" for 127.0.0.1 at 2018-11-09 23:14:11 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"53"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 53], ["user_id", 2], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-11-09 23:14:18 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 23:14:18 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-09 23:14:20 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered sessions/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 40ms (Views: 33.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-11-09 23:14:36 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mZw+FXSeinmSU+eUIr5yx9PPD6nrlHVe3KcTQmK/jsrJNP9vnaC1hRagy6uHj3gekOV7N1LSsD3qF/A40XMeKw==", "email"=>"nickolaswyman@kuhn.com", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nickolaswyman@kuhn.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/6/todos
+Completed 302 Found in 75ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/6/todos" for 127.0.0.1 at 2018-11-09 23:14:36 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 6]]
+  Rendered todos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 24ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/6/todos/48" for 127.0.0.1 at 2018-11-09 23:14:41 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"6", "id"=>"48"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 48], ["user_id", 6], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/6/todos/88" for 127.0.0.1 at 2018-11-09 23:14:46 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"6", "id"=>"88"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 88], ["user_id", 6], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 1.0ms)
+
+
