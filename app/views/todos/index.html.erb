@@ -3,7 +3,12 @@
 		<ul>
 			<%@todos.each do |todo|%>
 				<li>
-					<a href=<%="/users/#{current_user.id}/todos/#{todo.id}"%>> <%=todo.description%></a> 
+					<span>
+						<a href=<%="/users/#{current_user.id}/todos/#{todo.id}"%>> <%=todo.description%></a> 
+						<a href=<%="/users/#{current_user.id}/todos/#{todo.id}/edit"%>> edit  |  </a>
+						 <%= button_to "delete", {:controller => :todos,
+      						:action => 'destroy', :id => todo }, :method => :delete %>
+					</span> 
 				</li>
 			<%end%>
 		</ul>

@@ -1,1 +1,24 @@
-edit.html.erb
+<body>
+<%= form_for @todo, :url => {:action => "update", :id => @todo, :controller => "todos"} do |f| %>
+        <h2>todos</h2>
+                <div>
+                    <%= f.text_field :description, placeholder: 'description' %>
+                </div>
+
+                <div>
+                    <%= f.text_field :nominal_priority, placeholder: 'priority' %>
+                </div>
+                
+                <div>
+                    <%= f.text_field :allotted_time_in_hours, placeholder: 'time allotted in hours'  %>
+                </div>
+                
+                <div>
+                    <p><%= f.text_field :dependencies, placeholder: 'dependencies' %></p>
+                </div>
+                        
+                <div>
+                    <%= f.submit "submit"%>
+                </div>
+<% end %>
+</body>

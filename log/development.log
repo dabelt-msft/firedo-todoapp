@@ -10335,3 +10335,1836 @@ Processing by TodosController#show as HTML
 Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-11-11 20:27:31 -0800
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 408ms (Views: 380.6ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-11-11 20:27:34 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-11 20:27:34 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 45ms (Views: 37.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-11 20:27:35 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered sessions/new.html.erb within layouts/application (220.8ms)
+Completed 200 OK in 257ms (Views: 75.1ms | ActiveRecord: 174.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-11-11 20:27:43 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CcMGlvwJR71QfLfDF5RSnhd+qZuT/Ityxapxv4JyoKJZa8fsFTd4QdSPm/yypVhHVFTdBSq6ThHzGpLFMb4wQw==", "email"=>"ezra@ward.biz", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ezra@ward.biz"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/9/todos
+Completed 302 Found in 142ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/users/9/todos" for 127.0.0.1 at 2018-11-11 20:27:43 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered todos/index.html.erb within layouts/application (45.4ms)
+Completed 200 OK in 109ms (Views: 67.1ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/users/9/todos/7" for 127.0.0.1 at 2018-11-11 20:27:45 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"7"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 7], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 37ms (Views: 31.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/9/todos/9" for 127.0.0.1 at 2018-11-11 20:28:28 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"9"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 9], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 30ms (Views: 23.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/9/todos/14" for 127.0.0.1 at 2018-11-11 20:28:32 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"14"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 14], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 42ms (Views: 36.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/9/todos/25" for 127.0.0.1 at 2018-11-11 20:28:51 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"25"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 25], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 40ms (Views: 31.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9/todos/37" for 127.0.0.1 at 2018-11-11 20:28:54 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"37"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 37], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 33.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9/todos/46" for 127.0.0.1 at 2018-11-11 20:29:07 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"46"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 46], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 40ms (Views: 36.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/9/todos/47" for 127.0.0.1 at 2018-11-11 20:29:10 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"47"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 47], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 48ms (Views: 44.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/9/todos/66" for 127.0.0.1 at 2018-11-11 20:29:13 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"66"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 66], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/9/todos/70" for 127.0.0.1 at 2018-11-11 20:29:17 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"70"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 70], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 26ms (Views: 21.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9/todos/71" for 127.0.0.1 at 2018-11-11 20:29:20 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 71], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/9/todos/73" for 127.0.0.1 at 2018-11-11 20:29:23 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"73"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 73], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 29ms (Views: 23.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/9/todos/71" for 127.0.0.1 at 2018-11-11 20:36:15 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 71], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/9/todos/71/edit" for 127.0.0.1 at 2018-11-11 20:36:20 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (9.5ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for [:user, @todos] do |f| %>
+    2:   <%= f.submit "Submit" %>
+    3: <% end %>
+  
+app/views/todos/edit.html.erb:1:in `_app_views_todos_edit_html_erb__3335730572772254554_70277261655340'
+Started GET "/users/9/todos/71/edit" for 127.0.0.1 at 2018-11-11 20:37:35 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 11]]
+  Rendered todos/edit.html.erb within layouts/application (102.8ms)
+Completed 500 Internal Server Error in 393ms (ActiveRecord: 212.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_key' for #<Todo::ActiveRecord_Associations_CollectionProxy:0x00007fd5675108a8>
+Did you mean?  to_set
+               to_ary):
+    1: <%= form_for [:user, @todos] do |f| %>
+    2:   <%= f.submit "Submit" %>
+    3: <% end %>
+  
+app/views/todos/edit.html.erb:1:in `_app_views_todos_edit_html_erb__3335730572772254554_70277259696980'
+Started GET "/users/9/todos/71/edit" for 127.0.0.1 at 2018-11-11 20:38:26 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for :todo:Symbol):
+    1: <%= form_for [:todo] do |f| %>
+    2:   <%= f.submit "Submit" %>
+    3: <% end %>
+  
+app/views/todos/edit.html.erb:1:in `_app_views_todos_edit_html_erb__3335730572772254554_70277312811460'
+Started GET "/users/9/todos/71/edit" for 127.0.0.1 at 2018-11-11 20:40:10 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 404 Not Found in 45ms (ActiveRecord: 14.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Todo without an ID):
+  
+app/controllers/todos_controller.rb:20:in `edit'
+Started GET "/users/9/todos/71/edit" for 127.0.0.1 at 2018-11-11 20:42:25 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 71], ["user_id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for :todo:Symbol):
+    1: <%= form_for [:todo] do |f| %>
+    2:   <%= f.submit "Submit" %>
+    3: <% end %>
+  
+app/views/todos/edit.html.erb:1:in `_app_views_todos_edit_html_erb__3335730572772254554_70277305688260'
+Started GET "/users/9/todos/71/edit" for 127.0.0.1 at 2018-11-11 20:46:31 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"71"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 71], ["user_id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (16.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 89.1ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users/9/todos" for 127.0.0.1 at 2018-11-11 20:47:47 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered todos/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 45ms (Views: 27.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9/todos/37" for 127.0.0.1 at 2018-11-11 20:47:48 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"37"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 37], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (130.6ms)
+Completed 200 OK in 161ms (Views: 155.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/9/todos/9" for 127.0.0.1 at 2018-11-11 20:47:52 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"9"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 9], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/todos/9/edit" for 127.0.0.1 at 2018-11-11 20:47:56 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"9"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 9], ["user_id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 51.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/todos/9" for 127.0.0.1 at 2018-11-11 20:48:02 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"spDTqbTWPZpzZJOdQFm5pp6rI9VVqyvUkZKFWkT3ZHQfRHsA6ECiZqd8cC4/XnoL66P+HX9n6jJJwsR51uPpow==", "todo"=>{"description"=>"reintermediate integrated web-readiness", "nominal_priority"=>"10", "allotted_time_in_hours"=>"0.4", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"9"}
+No template found for TodosController#update, rendering head :no_content
+Completed 204 No Content in 162ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/9/todos/9/edit" for 127.0.0.1 at 2018-11-11 20:50:21 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"9"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 9], ["user_id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 37.0ms | ActiveRecord: 7.3ms)
+
+
+Started PATCH "/todos/9" for 127.0.0.1 at 2018-11-11 20:50:27 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wXeIJdcx4TI1McJhsCHPMD8IXR8IHinVzeLKG7o+zpZsoyCMi6d+zuEpIdLPJgydSgCA1yLS6DMVsos4KCpDQQ==", "todo"=>{"description"=>"reintermediate integrated web-readiness", "nominal_priority"=>"10", "allotted_time_in_hours"=>"0.2", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"9"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:24:in `update'
+Started PATCH "/todos/9" for 127.0.0.1 at 2018-11-11 20:52:51 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wXeIJdcx4TI1McJhsCHPMD8IXR8IHinVzeLKG7o+zpZsoyCMi6d+zuEpIdLPJgydSgCA1yLS6DMVsos4KCpDQQ==", "todo"=>{"description"=>"reintermediate integrated web-readiness", "nominal_priority"=>"10", "allotted_time_in_hours"=>"0.2", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"9"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `Update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:24:in `update'
+Started GET "/todos/" for 127.0.0.1 at 2018-11-11 20:59:45 -0800
+  
+SyntaxError (/Users/dawit/Desktop/davidproject/firedo-todoapp/app/controllers/todos_controller.rb:13: syntax error, unexpected ')', expecting =>
+...: current_user.id, todo_params)
+...                              ^):
+  
+app/controllers/todos_controller.rb:13: syntax error, unexpected ')', expecting =>
+Started GET "/todos/" for 127.0.0.1 at 2018-11-11 21:01:32 -0800
+  
+SyntaxError (/Users/dawit/Desktop/davidproject/firedo-todoapp/app/controllers/todos_controller.rb:13: syntax error, unexpected =>, expecting ')'
+...new(user_id: current_user.id => todo_params)
+...                             ^~):
+  
+app/controllers/todos_controller.rb:13: syntax error, unexpected =>, expecting ')'
+Started PATCH "/todos/9" for 127.0.0.1 at 2018-11-11 21:03:39 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wXeIJdcx4TI1McJhsCHPMD8IXR8IHinVzeLKG7o+zpZsoyCMi6d+zuEpIdLPJgydSgCA1yLS6DMVsos4KCpDQQ==", "todo"=>{"description"=>"reintermediate integrated web-readiness", "nominal_priority"=>"10", "allotted_time_in_hours"=>"0.2", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"9"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `Update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:24:in `update'
+Started PATCH "/todos/9" for 127.0.0.1 at 2018-11-11 21:04:49 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wXeIJdcx4TI1McJhsCHPMD8IXR8IHinVzeLKG7o+zpZsoyCMi6d+zuEpIdLPJgydSgCA1yLS6DMVsos4KCpDQQ==", "todo"=>{"description"=>"reintermediate integrated web-readiness", "nominal_priority"=>"10", "allotted_time_in_hours"=>"0.2", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"9"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `Update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:26:in `update'
+Started PATCH "/todos/9" for 127.0.0.1 at 2018-11-11 21:04:57 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wXeIJdcx4TI1McJhsCHPMD8IXR8IHinVzeLKG7o+zpZsoyCMi6d+zuEpIdLPJgydSgCA1yLS6DMVsos4KCpDQQ==", "todo"=>{"description"=>"reintermediate integrated web-readiness", "nominal_priority"=>"10", "allotted_time_in_hours"=>"0.2", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"9"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `Update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:26:in `update'
+Started GET "/todos/" for 127.0.0.1 at 2018-11-11 21:18:50 -0800
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered todos/index.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 135ms (Views: 76.9ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/users/9/todos/new" for 127.0.0.1 at 2018-11-11 21:18:51 -0800
+Processing by TodosController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  Rendering todos/new.html.erb within layouts/application
+  Rendered todos/new.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 34.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/todos" for 127.0.0.1 at 2018-11-11 21:19:08 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kWZ7H+bOc7zLZjhkhfPC1u53uCBgZp+z5J60LujI1oEz4mti5l2MH2l0KHyBDVMAGVyjbcimzPg+6ELqHQr31w==", "todo"=>{"description"=>"test", "nominal_priority"=>"4", "allotted_time_in_hours"=>"2.3", "dependencies"=>"1"}, "commit"=>"submit"}
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 12.6ms)
+
+
+  
+NoMethodError (undefined method `Create' for #<Class:0x00007fd56b8905d8>
+Did you mean?  create!):
+  
+app/controllers/todos_controller.rb:21:in `create'
+Started POST "/todos" for 127.0.0.1 at 2018-11-11 21:19:24 -0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kWZ7H+bOc7zLZjhkhfPC1u53uCBgZp+z5J60LujI1oEz4mti5l2MH2l0KHyBDVMAGVyjbcimzPg+6ELqHQr31w==", "todo"=>{"description"=>"test", "nominal_priority"=>"4", "allotted_time_in_hours"=>"2.3", "dependencies"=>"1"}, "commit"=>"submit"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "todos" ("nominal_priority", "user_id", "description", "allotted_time_in_hours", "dependencies", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["nominal_priority", 4], ["user_id", 9], ["description", "test"], ["allotted_time_in_hours", 2.3], ["dependencies", "1"], ["created_at", "2018-11-12 05:19:24.839556"], ["updated_at", "2018-11-12 05:19:24.839556"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/9/todos
+Completed 302 Found in 77ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/users/9/todos" for 127.0.0.1 at 2018-11-11 21:19:24 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (1.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered todos/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/9/todos/102" for 127.0.0.1 at 2018-11-11 21:19:26 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"102"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 102], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 29.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/9/todos/edit" for 127.0.0.1 at 2018-11-11 21:22:23 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"edit"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 0], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (45.3ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `description' for nil:NilClass):
+    1: <%if current_user%>
+    2: 	<% todo = Todo.find_by(id: params[:id], user_id: params[:user_id]) %>
+    3: 
+    4: 	<p>description: <%=todo.description  %></p>
+    5: 	<p>priority: <%=todo.nominal_priority  %></p>
+    6: 	<p>time allotted: <%=todo.allotted_time_in_hours  %> hrs</p>
+    7: 	<p>dependencies: <%=todo.dependencies  %></p>
+  
+app/views/todos/show.html.erb:4:in `_app_views_todos_show_html_erb__2547709191553965838_70277308585040'
+Started GET "/users/9/todos/" for 127.0.0.1 at 2018-11-11 21:23:36 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered todos/index.html.erb within layouts/application (72.0ms)
+Completed 200 OK in 157ms (Views: 120.5ms | ActiveRecord: 29.0ms)
+
+
+Started GET "/users/9/todos/14" for 127.0.0.1 at 2018-11-11 21:23:38 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"14"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 14], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 34ms (Views: 29.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/9/todos/14" for 127.0.0.1 at 2018-11-11 21:23:44 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"14"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 14], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 33ms (Views: 28.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9/todos/14/edit" for 127.0.0.1 at 2018-11-11 21:23:49 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"14"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 14], ["user_id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 37.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/todos/14" for 127.0.0.1 at 2018-11-11 21:23:57 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M+90e0KeTns05Ky2ngratFf+Hc9ljzI3mdQsqbdJbcOeO9zSHgjRh+D8TwXhDRkZIvbAB09D89FBhG2KJV3gFA==", "todo"=>{"description"=>"deploy cutting-edge bandwidth", "nominal_priority"=>"9", "allotted_time_in_hours"=>"2.8", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"14"}
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" IS NULL LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:33:in `update'
+Started PATCH "/todos/14" for 127.0.0.1 at 2018-11-11 21:25:08 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M+90e0KeTns05Ky2ngratFf+Hc9ljzI3mdQsqbdJbcOeO9zSHgjRh+D8TwXhDRkZIvbAB09D89FBhG2KJV3gFA==", "todo"=>{"description"=>"deploy cutting-edge bandwidth", "nominal_priority"=>"9", "allotted_time_in_hours"=>"2.8", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"14"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" IS NULL LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 5.6ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:33:in `update'
+Started GET "/todos/14/edit" for 127.0.0.1 at 2018-11-11 21:26:10 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" IS NULL LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <body>
+    2: <%= form_for @todo do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/edit.html.erb:2:in `_app_views_todos_edit_html_erb__3335730572772254554_70277269621420'
+Started GET "/todos/" for 127.0.0.1 at 2018-11-11 21:26:19 -0800
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 9]]
+  Rendered todos/index.html.erb within layouts/application (42.1ms)
+Completed 200 OK in 145ms (Views: 53.4ms | ActiveRecord: 43.4ms)
+
+
+Started GET "/users/9/todos/25" for 127.0.0.1 at 2018-11-11 21:26:21 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"25"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 25], ["user_id", 9], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/todos/25/edit" for 127.0.0.1 at 2018-11-11 21:26:26 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"25"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 25], ["user_id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 43.7ms | ActiveRecord: 7.5ms)
+
+
+Started PATCH "/todos/25" for 127.0.0.1 at 2018-11-11 21:26:30 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmaDAr64ljnDHyXbqE4kktG0qO+/bLBLUBRlUwR9Ym4Tsiur4i4JxRcHxmjXSec/pLx1J5Wgca2IRCRwlmnvuQ==", "todo"=>{"description"=>"engage efficient functionalities", "nominal_priority"=>"4", "allotted_time_in_hours"=>"2.5", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"25"}
+  [1m[36mTodo Load (1.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" IS NULL LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.3ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:35:in `update'
+Started PATCH "/todos/25" for 127.0.0.1 at 2018-11-11 21:27:15 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vmaDAr64ljnDHyXbqE4kktG0qO+/bLBLUBRlUwR9Ym4Tsiur4i4JxRcHxmjXSec/pLx1J5Wgca2IRCRwlmnvuQ==", "todo"=>{"description"=>"engage efficient functionalities", "nominal_priority"=>"4", "allotted_time_in_hours"=>"2.5", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"25"}
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" IS NULL LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:37:in `update'
+Started GET "/users/9/todos/25/edit" for 127.0.0.1 at 2018-11-11 21:28:25 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"9", "id"=>"25"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 25], ["user_id", 9], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 45.5ms | ActiveRecord: 8.0ms)
+
+
+Started PATCH "/todos/25" for 127.0.0.1 at 2018-11-11 21:28:29 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a+qsxWWzhzHylKTeNqoGHqrltTfXowBCRH3h5wrszDLGPgRsOSUYzSaMR21JrcWz3+1o//1vwaScLaDEmPhB5Q==", "todo"=>{"description"=>"engage efficient functionalities", "nominal_priority"=>"4", "allotted_time_in_hours"=>"2.4", "dependencies"=>"get email address list"}, "commit"=>"submit", "id"=>"25"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" IS NULL LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:37:in `update'
+Started GET "/" for 127.0.0.1 at 2018-11-11 21:40:49 -0800
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 236ms (Views: 217.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-11-11 21:40:51 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-11 21:40:51 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-11 21:40:52 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered sessions/new.html.erb within layouts/application (32.6ms)
+Completed 200 OK in 66ms (Views: 42.9ms | ActiveRecord: 14.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-11-11 21:41:04 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ibdOwpxE/lyDjfyELv5O4POrepQxNBdGnenFDmMAvGzZH4+4dXrBoAd+0LuLz0Q5sIEOCohy0iWrWSZ00MwsjQ==", "email"=>"ward@hermannwiegand.biz", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ward@hermannwiegand.biz"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 78ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:41:04 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 80ms (Views: 48.1ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/users/10/todos/10" for 127.0.0.1 at 2018-11-11 21:41:05 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"10"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 10], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/todos/83" for 127.0.0.1 at 2018-11-11 21:41:12 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"83"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 83], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10/todos/83/edit" for 127.0.0.1 at 2018-11-11 21:41:17 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"83"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 83], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/Users/dawit/Desktop/davidproject/firedo-todoapp/app/views/todos/edit.html.erb:2: syntax error, unexpected ':', expecting keyword_end
+...uffer.append=  form_for @todo :url => {:action => "PUT", :id...
+...                              ^
+/Users/dawit/Desktop/davidproject/firedo-todoapp/app/views/todos/edit.html.erb:2: syntax error, unexpected keyword_do, expecting keyword_end
+...odo, :controller => "todos"} do |f| @output_buffer.safe_appe...
+...                             ^~
+/Users/dawit/Desktop/davidproject/firedo-todoapp/app/views/todos/edit.html.erb:26: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/todos/edit.html.erb:2: syntax error, unexpected ':', expecting keyword_end
+app/views/todos/edit.html.erb:2: syntax error, unexpected keyword_do, expecting keyword_end
+app/views/todos/edit.html.erb:26: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users/10/todos/83/edit" for 127.0.0.1 at 2018-11-11 21:42:27 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"83"}
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 83], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (303.6ms)
+Completed 500 Internal Server Error in 334ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `todo' for #<#<Class:0x00007f9bb9bcb568>:0x00007f9bb5330ec0>
+Did you mean?  @todo):
+    1: <body>
+    2: <%= form_for @todo, :url => {:action => "PUT", :id => todo, :controller => "todos"} do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/edit.html.erb:2:in `_app_views_todos_edit_html_erb__3490009451199217860_70153368346340'
+Started GET "/users/10/todos/83/edit" for 127.0.0.1 at 2018-11-11 21:43:02 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"83"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 83], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (19.1ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"PUT", :controller=>"todos", :id=>#<Todo id: 83, nominal_priority: 6, user_id: 10, description: "maximize magnetic channels", allotted_time_in_hours: 0.8, dependencies: "get email address list", created_at: "2018-11-12 03:38:00", updated_at: "2018-11-12 03:38:00">, :user_id=>"10"}):
+    1: <body>
+    2: <%= form_for @todo, :url => {:action => "PUT", :id => @todo, :controller => "todos"} do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/edit.html.erb:2:in `_app_views_todos_edit_html_erb__3490009451199217860_70153405335540'
+Started GET "/users/10/todos/83/edit" for 127.0.0.1 at 2018-11-11 21:43:38 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"83"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 83], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"Update", :controller=>"todos", :id=>#<Todo id: 83, nominal_priority: 6, user_id: 10, description: "maximize magnetic channels", allotted_time_in_hours: 0.8, dependencies: "get email address list", created_at: "2018-11-12 03:38:00", updated_at: "2018-11-12 03:38:00">, :user_id=>"10"}):
+    1: <body>
+    2: <%= form_for @todo, :url => {:action => "Update", :id => @todo, :controller => "todos"} do |f| %>
+    3:         <h2>todos</h2>
+    4:                 <div>
+    5:                     <%= f.text_field :description, placeholder: 'description' %>
+  
+app/views/todos/edit.html.erb:2:in `_app_views_todos_edit_html_erb__3490009451199217860_70153393530940'
+Started GET "/users/10/todos/83/edit" for 127.0.0.1 at 2018-11-11 21:44:08 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"83"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 83], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 35.5ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/10/todos/83" for 127.0.0.1 at 2018-11-11 21:44:10 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UkAusE7HdfC+z5gFw6fTs4Agw6l9RZVfjrvQpxOGIz7/lIYZElHqDGrXe7a8oBAe9SgeYVeJVLlW65GEgZKu6Q==", "todo"=>{"description"=>"maximize magnetic channels", "nominal_priority"=>"6", "allotted_time_in_hours"=>"0.8", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"83"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Todo with 'id'={:id=>"83", :user_id=>10}):
+  
+app/controllers/todos_controller.rb:32:in `update'
+Started PATCH "/users/10/todos/83" for 127.0.0.1 at 2018-11-11 21:45:06 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UkAusE7HdfC+z5gFw6fTs4Agw6l9RZVfjrvQpxOGIz7/lIYZElHqDGrXe7a8oBAe9SgeYVeJVLlW65GEgZKu6Q==", "todo"=>{"description"=>"maximize magnetic channels", "nominal_priority"=>"6", "allotted_time_in_hours"=>"0.8", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"83"}
+Completed 500 Internal Server Error in 201ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `todo' for #<TodosController:0x00007f9bb4a73030>):
+  
+app/controllers/todos_controller.rb:32:in `update'
+Started PATCH "/users/10/todos/83" for 127.0.0.1 at 2018-11-11 21:45:49 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UkAusE7HdfC+z5gFw6fTs4Agw6l9RZVfjrvQpxOGIz7/lIYZElHqDGrXe7a8oBAe9SgeYVeJVLlW65GEgZKu6Q==", "todo"=>{"description"=>"maximize magnetic channels", "nominal_priority"=>"6", "allotted_time_in_hours"=>"0.8", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"83"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 36ms (ActiveRecord: 12.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Todo with 'id'={:id=>"83", :user_id=>10}):
+  
+app/controllers/todos_controller.rb:32:in `update'
+Started PATCH "/users/10/todos/83" for 127.0.0.1 at 2018-11-11 21:46:15 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UkAusE7HdfC+z5gFw6fTs4Agw6l9RZVfjrvQpxOGIz7/lIYZElHqDGrXe7a8oBAe9SgeYVeJVLlW65GEgZKu6Q==", "todo"=>{"description"=>"maximize magnetic channels", "nominal_priority"=>"6", "allotted_time_in_hours"=>"0.8", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"83"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 83], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 29ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:46:15 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 27ms (Views: 21.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos/64" for 127.0.0.1 at 2018-11-11 21:46:17 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"64"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 64], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10/todos/64/edit" for 127.0.0.1 at 2018-11-11 21:46:23 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"64"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 64], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 27.9ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/10/todos/64" for 127.0.0.1 at 2018-11-11 21:46:28 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zLsZwqN7PqS6qy9m9r3uXO+4x6ndbBUL4nQPwfASykphb7Fr/+2hWG6zzNWJui3xmrAaYfeg1O06JE7iYgZHnQ==", "todo"=>{"description"=>"incentivize bleeding-edge interfaces", "nominal_priority"=>"3", "allotted_time_in_hours"=>"2.5", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"64"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 64], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE "todos" SET "allotted_time_in_hours" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["allotted_time_in_hours", 2.5], ["updated_at", "2018-11-12 05:46:28.496297"], ["id", 64]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 21ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:46:28 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (1.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 37ms (Views: 30.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/10/todos/2" for 127.0.0.1 at 2018-11-11 21:46:45 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"2"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 2], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/todos/2/edit" for 127.0.0.1 at 2018-11-11 21:46:54 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"2"}
+  [1m[36mTodo Load (42.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 2], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 125ms (Views: 26.7ms | ActiveRecord: 42.8ms)
+
+
+Started PATCH "/users/10/todos/2" for 127.0.0.1 at 2018-11-11 21:47:02 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E3sJZY/lnZYFm6SMIRGeTEtfWDP9MuIgUA2c0es+Nbu+r6HM03MCatGDRz9eFl3hPleF+9f+I8aIXd3yeSq4bA==", "todo"=>{"description"=>"expedite global metrics", "nominal_priority"=>"6", "allotted_time_in_hours"=>"2.9", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 2], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "todos" SET "allotted_time_in_hours" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["allotted_time_in_hours", 2.9], ["updated_at", "2018-11-12 05:47:02.275642"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:47:02 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 29ms (Views: 23.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10/todos/10" for 127.0.0.1 at 2018-11-11 21:47:04 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"10"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 10], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10/todos/10/edit" for 127.0.0.1 at 2018-11-11 21:47:15 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"10"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 10], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 33.8ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/10/todos/10" for 127.0.0.1 at 2018-11-11 21:47:24 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gG4z0Bb/zaqaLV2Wwf3FRm4qrIPJ85XpCtd5WYdHaDEtupt5SmlSVk41viW++gbrGyJxS+M/VA/Shzh6FVPl5g==", "todo"=>{"description"=>"benchmark clicks-and-mortar mindshare", "nominal_priority"=>"6", "allotted_time_in_hours"=>"3.0", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 10], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "todos" SET "allotted_time_in_hours" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["allotted_time_in_hours", 3.0], ["updated_at", "2018-11-12 05:47:24.189560"], ["id", 10]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 10ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:47:24 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 33ms (Views: 26.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10/todos/10" for 127.0.0.1 at 2018-11-11 21:47:26 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"10"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 10], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:54:14 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (28.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 133ms (Views: 52.7ms | ActiveRecord: 32.5ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:55:06 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (1.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 28ms (Views: 22.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/10/todos/3" for 127.0.0.1 at 2018-11-11 21:55:08 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"3"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 3], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10/todos/4" for 127.0.0.1 at 2018-11-11 21:55:19 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"4"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 4], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10/todos/48" for 127.0.0.1 at 2018-11-11 21:55:23 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"48"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 48], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:56:36 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos/3/edit" for 127.0.0.1 at 2018-11-11 21:56:40 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"3"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 3], ["user_id", 10], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 26.0ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/10/todos/3" for 127.0.0.1 at 2018-11-11 21:56:46 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7aZ0YpGK09LX5p2VXiQc5t39TdcccYQlND0GL0msS/jmc1tO216p3WLCCMyRb9xBHtb3SQo2kPqTWC51lYS9+Q==", "todo"=>{"description"=>"engineer granular e-tailers", "nominal_priority"=>"2", "allotted_time_in_hours"=>"1.2", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 3], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "todos" SET "allotted_time_in_hours" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["allotted_time_in_hours", 1.2], ["updated_at", "2018-11-12 05:56:46.152534"], ["id", 3]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 3.5ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/todos_controller.rb:34:in `update'
+Started PATCH "/users/10/todos/3" for 127.0.0.1 at 2018-11-11 21:58:37 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7aZ0YpGK09LX5p2VXiQc5t39TdcccYQlND0GL0msS/jmc1tO216p3WLCCMyRb9xBHtb3SQo2kPqTWC51lYS9+Q==", "todo"=>{"description"=>"engineer granular e-tailers", "nominal_priority"=>"2", "allotted_time_in_hours"=>"1.2", "dependencies"=>"get email address list"}, "commit"=>"submit", "user_id"=>"10", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 3], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 39ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 21:58:37 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 27ms (Views: 22.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:01:31 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 38ms (Views: 34.0ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/10/todos/4" for 127.0.0.1 at 2018-11-11 22:01:37 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XYTBY1k8aFnFRfYWOLOYYlfibt0D4/xNxDHDlO/hTZbwUGnKBar3pRFdFaVHtFvPIuqzFSkvPascYYK3ffXAQQ==", "commit"=>"delete", "user_id"=>"10", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 4], ["user_id", 10], ["LIMIT", 1]]
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: todo):
+  
+app/controllers/todos_controller.rb:45:in `todo_params'
+app/controllers/todos_controller.rb:33:in `update'
+Started PATCH "/users/10/todos/4" for 127.0.0.1 at 2018-11-11 22:03:12 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XYTBY1k8aFnFRfYWOLOYYlfibt0D4/xNxDHDlO/hTZbwUGnKBar3pRFdFaVHtFvPIuqzFSkvPascYYK3ffXAQQ==", "commit"=>"delete", "user_id"=>"10", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 4], ["user_id", 10], ["LIMIT", 1]]
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: todo):
+  
+app/controllers/todos_controller.rb:45:in `todo_params'
+app/controllers/todos_controller.rb:33:in `update'
+Started GET "/users/10/todos/" for 127.0.0.1 at 2018-11-11 22:04:32 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (12.5ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"todos", :id=>#<Todo id: 4, nominal_priority: 2, user_id: 10, description: "embrace dot-com action-items", allotted_time_in_hours: 0.7, dependencies: "get email address list", created_at: "2018-11-12 03:37:59", updated_at: "2018-11-12 03:37:59">, :user_id=>"10"}):
+     5: 				<li>
+     6: 					<span>
+     7: 						<a href=<%="/users/#{current_user.id}/todos/#{todo.id}"%>> <%=todo.description%></a> <a href=<%="/users/#{current_user.id}/todos/#{todo.id}/edit"%>> edit  |  </a> 
+     8: 						<%= form_for todo, :url => {:action => "delete", :id => todo, :controller => "todos"} do |f| %>
+     9:         
+    10:                     		<%= f.submit "delete"%>
+    11:                 
+  
+app/views/todos/index.html.erb:8:in `block in _app_views_todos_index_html_erb___2262355116441934898_70153413187540'
+app/views/todos/index.html.erb:4:in `_app_views_todos_index_html_erb___2262355116441934898_70153413187540'
+Started GET "/users/10/todos/" for 127.0.0.1 at 2018-11-11 22:05:36 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (10.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"todos", :id=>#<Todo id: 4, nominal_priority: 2, user_id: 10, description: "embrace dot-com action-items", allotted_time_in_hours: 0.7, dependencies: "get email address list", created_at: "2018-11-12 03:37:59", updated_at: "2018-11-12 03:37:59">, :user_id=>"10"}):
+     5: 				<li>
+     6: 					<span>
+     7: 						<a href=<%="/users/#{current_user.id}/todos/#{todo.id}"%>> <%=todo.description%></a> <a href=<%="/users/#{current_user.id}/todos/#{todo.id}/edit"%>> edit  |  </a> 
+     8: 						<%= form_for todo, :url => {:action => "delete", :id => todo, :controller => "todos"} do |f| %>
+     9:         
+    10:                     		<%= f.submit "delete"%>
+    11:                 
+  
+app/views/todos/index.html.erb:8:in `block in _app_views_todos_index_html_erb___2262355116441934898_70153367846560'
+app/views/todos/index.html.erb:4:in `_app_views_todos_index_html_erb___2262355116441934898_70153367846560'
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:05:48 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"todos", :id=>#<Todo id: 4, nominal_priority: 2, user_id: 10, description: "embrace dot-com action-items", allotted_time_in_hours: 0.7, dependencies: "get email address list", created_at: "2018-11-12 03:37:59", updated_at: "2018-11-12 03:37:59">, :user_id=>"10"}):
+     5: 				<li>
+     6: 					<span>
+     7: 						<a href=<%="/users/#{current_user.id}/todos/#{todo.id}"%>> <%=todo.description%></a> <a href=<%="/users/#{current_user.id}/todos/#{todo.id}/edit"%>> edit  |  </a> 
+     8: 						<%= form_for todo, :url => {:action => "delete", :id => todo, :controller => "todos"} do |f| %>
+     9:         
+    10:                     		<%= f.submit "delete"%>
+    11:                 
+  
+app/views/todos/index.html.erb:8:in `block in _app_views_todos_index_html_erb___2262355116441934898_70153369765300'
+app/views/todos/index.html.erb:4:in `_app_views_todos_index_html_erb___2262355116441934898_70153369765300'
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:06:23 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (6.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 222ms (Views: 53.4ms | ActiveRecord: 52.1ms)
+
+
+Started PATCH "/users/10/todos/4" for 127.0.0.1 at 2018-11-11 22:06:25 -0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iIAaEU8An6bGQ7oJcKYD+gNUOV/+QUXx/YSu6TpI6X8lVLK4E5YAWhJbWboPocBXdlzkl9SNhBcl1O/KqFxkqA==", "commit"=>"delete", "user_id"=>"10", "id"=>"4"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 4], ["user_id", 10], ["LIMIT", 1]]
+Completed 400 Bad Request in 8ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: todo):
+  
+app/controllers/todos_controller.rb:45:in `todo_params'
+app/controllers/todos_controller.rb:33:in `update'
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:08:27 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 34ms (Views: 29.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos/4/delete" for 127.0.0.1 at 2018-11-11 22:08:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/users/10/todos/4/delete"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/10/todos/4/delete" for 127.0.0.1 at 2018-11-11 22:08:47 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/users/10/todos/4/delete"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/10/todos/4/delete" for 127.0.0.1 at 2018-11-11 22:12:33 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/users/10/todos/4/delete"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/10/todos/" for 127.0.0.1 at 2018-11-11 22:12:40 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 85ms (Views: 50.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10/todos/" for 127.0.0.1 at 2018-11-11 22:12:42 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 34ms (Views: 29.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/10/todos/4" for 127.0.0.1 at 2018-11-11 22:12:44 -0800
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for TodosController):
+  
+actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started DELETE "/users/10/todos/4" for 127.0.0.1 at 2018-11-11 22:13:01 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fU8YYHya7NH4YPL6GD6nGmSkmwlekkLm0NCN7ymhDJLQm7DJIAxzLSx4EUlnOWS3EaxGwXRegwAIgMzMu7WBRQ==", "user_id"=>"10", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 4], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (14.4ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 4]]
+No template found for TodosController#destroy, rendering head :no_content
+Completed 204 No Content in 145ms (ActiveRecord: 22.0ms)
+
+
+Started DELETE "/users/10/todos/28" for 127.0.0.1 at 2018-11-11 22:13:07 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fU8YYHya7NH4YPL6GD6nGmSkmwlekkLm0NCN7ymhDJLQm7DJIAxzLSx4EUlnOWS3EaxGwXRegwAIgMzMu7WBRQ==", "user_id"=>"10", "id"=>"28"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 28], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 28]]
+No template found for TodosController#destroy, rendering head :no_content
+Completed 204 No Content in 103ms (ActiveRecord: 2.9ms)
+
+
+Started DELETE "/users/10/todos/28" for 127.0.0.1 at 2018-11-11 22:13:09 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fU8YYHya7NH4YPL6GD6nGmSkmwlekkLm0NCN7ymhDJLQm7DJIAxzLSx4EUlnOWS3EaxGwXRegwAIgMzMu7WBRQ==", "user_id"=>"10", "id"=>"28"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 28], ["user_id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `delete' for nil:NilClass):
+  
+app/controllers/todos_controller.rb:41:in `destroy'
+Started DELETE "/users/10/todos/72" for 127.0.0.1 at 2018-11-11 22:13:33 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fU8YYHya7NH4YPL6GD6nGmSkmwlekkLm0NCN7ymhDJLQm7DJIAxzLSx4EUlnOWS3EaxGwXRegwAIgMzMu7WBRQ==", "user_id"=>"10", "id"=>"72"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 72], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 72]]
+No template found for TodosController#destroy, rendering head :no_content
+Completed 204 No Content in 99ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/10/todos/" for 127.0.0.1 at 2018-11-11 22:13:36 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 52ms (Views: 45.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/todos/" for 127.0.0.1 at 2018-11-11 22:13:58 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 58ms (Views: 31.7ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/10/todos/69" for 127.0.0.1 at 2018-11-11 22:14:00 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tpv93YChqMPv0r3wlY0jCMj8wLuqJWBrZC7A4bZ3sgYbT1V03Dc3PzvKXkPqiuClvfQdc4DpoY28foHCJGM/0Q==", "user_id"=>"10", "id"=>"69"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 69], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 69]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:14:00 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/10/todos/67" for 127.0.0.1 at 2018-11-11 22:14:03 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dPjpmB/1xPmzGmNNAA0icXtVZztINHHy9WK8qwT3r5jZLEExQ2NbBWcCgP5/CuHcDl2682L4sBQtMv2IluMiTw==", "user_id"=>"10", "id"=>"67"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 67], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 67]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:14:03 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 34ms (Views: 29.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/todos/76" for 127.0.0.1 at 2018-11-11 22:14:04 -0800
+Processing by TodosController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"76"}
+  Rendering todos/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 76], ["user_id", 10], ["LIMIT", 1]]
+  Rendered todos/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/10/todos/65" for 127.0.0.1 at 2018-11-11 22:14:08 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"U+kVI7VrWw7wp+sB19YFEgfGybKdrDqZ/ekZ6zBpyZf+Pb2K6f3E8iS/CLKo0ca/cs4Uerdg+38luVjIon1EQA==", "user_id"=>"10", "id"=>"65"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 65], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 65]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:14:08 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 32ms (Views: 26.3ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/10/todos/3" for 127.0.0.1 at 2018-11-11 22:14:09 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1SrSjv+p8HTI2o4T3F8Nimnwz3BPOBhtbDqUOZ0hgTp4/nonoz9viBzCbaCjWM4nHPgSuGX02Yu0atUaDzUM7Q==", "user_id"=>"10", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 3], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 3]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:14:09 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 27ms (Views: 22.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/10/todos/10" for 127.0.0.1 at 2018-11-11 22:14:10 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DhcBSIw5+hsge1Emki4f6WJNwwAvnGwmBbqMAWjbyCyjw6nh0K9l5/RjspXtKdxEF0UeyAVQrcDd6s0i+s9F+w==", "user_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 10], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 10]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:14:10 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 32ms (Views: 25.6ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/10/todos/2" for 127.0.0.1 at 2018-11-11 22:14:12 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"MwebumnlNi7CHdQFl3RC90+59T37dVUupnpOWt5pYo2e0zMTNXOp0hYFN7boc4FaOrEo9dG5lMh+Kg95TH3vWg==", "user_id"=>"10", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTodo Load (2.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 2], ["user_id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (96.6ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 2]]
+Redirected to http://localhost:3000/users/10/todos
+Completed 302 Found in 106ms (ActiveRecord: 99.6ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:14:12 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 24ms (Views: 16.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:15:59 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 119ms (Views: 42.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:16:01 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 38ms (Views: 33.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/10/todos" for 127.0.0.1 at 2018-11-11 22:16:30 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 40ms (Views: 33.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/14/todos" for 127.0.0.1 at 2018-11-11 22:19:53 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 40ms (Views: 32.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/14/todos" for 127.0.0.1 at 2018-11-11 22:19:56 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered todos/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-11-11 22:19:58 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-11 22:19:58 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-11-11 22:19:59 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 70ms (Views: 59.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-11-11 22:20:06 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8gYqluqp5zqthWRD0wvdO5QclHgNW2H1V7tinvmSqniiruvsA5fYxil2SHx2Otfi1zbg5rQdpJZhC4HkSl46mQ==", "email"=>"regenaconsidine@armstrong.com", "password"=>"[FILTERED]", "commit"=>"login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "regenaconsidine@armstrong.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1/todos
+Completed 302 Found in 76ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:20:06 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/1/todos/23" for 127.0.0.1 at 2018-11-11 22:20:08 -0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"inC4QPj9GWc6jd+MNNphi2DSuFuxZxS55bDtm4rThConpBDppGuGm+6VPD9L3aImFdplk5ur1V894Ky4GMcJ/Q==", "user_id"=>"1", "id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 23], ["user_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 23]]
+Redirected to http://localhost:3000/users/1/todos
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:20:08 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos/96/edit" for 127.0.0.1 at 2018-11-11 22:20:10 -0800
+Processing by TodosController#edit as HTML
+  Parameters: {"user_id"=>"1", "id"=>"96"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 AND "todos"."user_id" = $2 LIMIT $3[0m  [["id", 96], ["user_id", 1], ["LIMIT", 1]]
+  Rendering todos/edit.html.erb within layouts/application
+  Rendered todos/edit.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 31.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:20:53 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:20:56 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 33ms (Views: 28.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:20:57 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 33ms (Views: 28.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:21:15 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 92ms (Views: 32.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:21:59 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:22:01 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:22:02 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:22:02 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 31ms (Views: 27.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:22:38 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 41ms (Views: 36.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:23:06 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (110.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (117.3ms)
+Completed 200 OK in 169ms (Views: 36.5ms | ActiveRecord: 118.4ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:23:07 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (149.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 206ms (Views: 48.7ms | ActiveRecord: 150.0ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:23:07 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:23:08 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/todos" for 127.0.0.1 at 2018-11-11 22:24:18 -0800
+Processing by TodosController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering todos/index.html.erb within layouts/application
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered todos/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 35ms (Views: 30.9ms | ActiveRecord: 0.5ms)
+
+
