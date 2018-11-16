@@ -11,18 +11,13 @@ class User < ApplicationRecord
 	end
 
 	def total_allotted_time
-		self.todos.sum(:total_allotted_time_in_hours)
+		self.todos.sum(:allotted_time_in_hours)
 	end
 
 	def update_priority
-		if self.todos.count == 0
-			return 1
-		else
-			return (1 - (self.todos. / items.totalHours)) * this.nominalPriority;
-
-
 		self.todos.each do |todo|
-			self.todos.calculated_priority = (1 - (todo.allotted_time_in_hours / total_allotted_time)) * todo.nominal_priority 
+			@calculated_priority = self.todos.count == 0 ? 1 : (1 - (todo.allotted_time_in_hours / total_allotted_time)) * todo.nominal_priority
+			todo.update(calculated_priority: @calculated_priority) 
 		end
 	end
 

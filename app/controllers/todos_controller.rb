@@ -1,4 +1,7 @@
 class TodosController < ApplicationController
+	before_action :set_user, only: [:update, :destroy]
+	before_action :set_todo, only: [:edit, :update, :destroy]
+
 	def index
 		if current_user
 			@todos = current_user.todos
@@ -18,31 +21,46 @@ class TodosController < ApplicationController
 			allotted_time_in_hours: todo_params[:allotted_time_in_hours],
 			dependencies: todo_params[:dependencies]
 		}
-		t = Todo.create(params_todo)
-		if t.save
+		todo = Todo.create(params_todo)
+		p todo
+		if todo.save
+			todo.user.update_priority
 			redirect_to "/users/#{current_user.id}/todos"
 		end
 	end
 
 	def edit
-		@todo = Todo.find_by(id: params[:id], user_id: params[:user_id])
 	end
 
 	def update
-		todo = Todo.find_by(id: params[:id], user_id: current_user.id)
-		todo.update(todo_params)
-		if todo.save
+		@todo.update(todo_params)
+		if @todo.save
+			@user.update_priority
 			redirect_to "/users/#{current_user.id}/todos"
 		end
 	end
 
 	def destroy
-		todo = Todo.find_by(id: params[:id], user_id: current_user.id)
-		todo.delete
+		@todo.delete
+		@user.update_priority
 		redirect_to "/users/#{current_user.id}/todos"
 	end
 
+private
 	def todo_params
     	params.require(:todo).permit(:nominal_priority, :description, :allotted_time_in_hours, :dependencies)
-  	end
+	end
+
+	def set_todo
+		@todo = Todo.find_by(id: params[:id], user_id: params[:user_id])
+	end
+
+	def set_user
+		todo = Todo.find_by(id: params[:id], user_id: params[:user_id])
+		@user = todo.user
+	end
+
+	def update_todos
+		todo = Todo.find_by(id: params[:id], user_id: params[:user_id])
+	end
 end
